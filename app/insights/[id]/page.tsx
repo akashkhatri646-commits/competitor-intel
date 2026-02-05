@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use, useState, useEffect, Suspense } from "react";
 import { notFound, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -78,6 +78,18 @@ function getStoredReviewActions(): Record<string, { action: "verified" | "reject
 }
 
 export default function InsightDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  return (
+    <Suspense fallback={null}>
+      <InsightDetailContent params={params} />
+    </Suspense>
+  );
+}
+
+function InsightDetailContent({
   params,
 }: {
   params: Promise<{ id: string }>;

@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect, useMemo } from "react";
+import { use, useState, useEffect, useMemo, Suspense } from "react";
 import { notFound, useSearchParams, useRouter } from "next/navigation";
 import {
   PageShell,
@@ -31,6 +31,18 @@ function isNewInsight(insight: Insight): boolean {
 }
 
 export default function CompetitorDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  return (
+    <Suspense fallback={null}>
+      <CompetitorDetailContent params={params} />
+    </Suspense>
+  );
+}
+
+function CompetitorDetailContent({
   params,
 }: {
   params: Promise<{ slug: string }>;

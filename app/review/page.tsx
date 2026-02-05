@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -69,6 +69,14 @@ const rejectionReasons = [
 ];
 
 export default function ReviewQueuePage() {
+  return (
+    <Suspense fallback={null}>
+      <ReviewQueueContent />
+    </Suspense>
+  );
+}
+
+function ReviewQueueContent() {
   const searchParams = useSearchParams();
   const initialTab = (searchParams.get("tab") as ReviewTab) || "pending";
 

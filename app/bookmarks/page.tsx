@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, type ReactNode } from "react";
 import {
   PageShell,
   PageHeader,
@@ -14,7 +14,7 @@ import {
 
 type ActivityTab = "bookmarked" | "liked" | "disliked" | "flagged";
 
-const tabs: { id: ActivityTab; label: string; icon: JSX.Element }[] = [
+const tabs: { id: ActivityTab; label: string; icon: ReactNode }[] = [
   {
     id: "bookmarked",
     label: "Bookmarked",
