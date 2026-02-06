@@ -70,16 +70,28 @@ export default function DashboardPage() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Left Column - Threat Matrix */}
         <div className="lg:col-span-1">
-          <h3 className="text-sm font-semibold text-foreground mb-4">
+          <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
             Threat Matrix
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full">
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
+              </svg>
+              AI-generated
+            </span>
           </h3>
           <ThreatMatrix competitors={competitors} />
         </div>
 
         {/* Middle Column - Recent Signals */}
         <div className="lg:col-span-1">
-          <h3 className="text-sm font-semibold text-foreground mb-4">
+          <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
             Recent Signals
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full">
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
+              </svg>
+              AI-generated
+            </span>
           </h3>
           <div className="card p-4">
             <div className="space-y-3">
