@@ -21,6 +21,7 @@ import {
   categoryColors,
   sourceTypeLabels,
   getSourceById,
+  getSignalCount30d,
   competitors as allCompetitors,
   insights as allInsights,
   signals as allSignals,
@@ -938,6 +939,7 @@ export function KPICard({ kpi }: { kpi: DashboardKPI }) {
 }
 
 export function CompetitorCard({ competitor }: { competitor: Competitor }) {
+  const count30d = getSignalCount30d(competitor.id);
   return (
     <Link href={`/competitors/${competitor.slug}`}>
       <div className="card-interactive p-5 h-full">
@@ -952,7 +954,7 @@ export function CompetitorCard({ competitor }: { competitor: Competitor }) {
           {competitor.description}
         </p>
         <div className="flex items-center justify-between text-xs text-subtle">
-          <span>{competitor.signalCount30d} {competitor.signalCount30d === 1 ? 'signal' : 'signals'} (30d)</span>
+          <span>{count30d} {count30d === 1 ? 'signal' : 'signals'} (30d)</span>
           <span className="flex items-center gap-1">
             <span>Last Activity:</span>
             <FreshnessIndicator dateString={competitor.lastActivityDate} />
@@ -1576,8 +1578,9 @@ export function ThreatMatrix({ competitors }: { competitors: Competitor[] }) {
 
         {/* Competitor dots */}
         {competitors.map((c) => {
-          // X: Activity (signalCount30d) - scale 0-20 signals to 5-95%
-          const x = Math.min(95, Math.max(5, (c.signalCount30d / 20) * 90 + 5));
+          // X: Activity (signals in last 30d) - scale 0-20 signals to 5-95%
+          const activityCount = getSignalCount30d(c.id);
+          const x = Math.min(95, Math.max(5, (activityCount / 20) * 90 + 5));
           // Y: Impact (threatScore) - inverted, scale 0-100 to position
           const y = 100 - c.threatScore;
           return (

@@ -29,7 +29,6 @@ export interface Competitor {
   strengths: string[];
   weaknesses: string[];
   recentMoves: string[];
-  signalCount30d: number;
   lastActivityDate: string;
 }
 
@@ -187,7 +186,7 @@ export const competitors: Competitor[] = [
       "Launched managed GPU cluster service",
       "Hired former AWS VP as CRO",
     ],
-    signalCount30d: 18,
+
     lastActivityDate: "2026-02-01",
   },
   {
@@ -221,7 +220,7 @@ export const competitors: Competitor[] = [
       "Open-sourced their deployment engine",
       "Crossed 10,000 paying customers",
     ],
-    signalCount30d: 15,
+
     lastActivityDate: "2026-01-30",
   },
   {
@@ -255,7 +254,7 @@ export const competitors: Competitor[] = [
       "Launched healthcare-specific compliance suite",
       "Opened first European data center in Frankfurt",
     ],
-    signalCount30d: 7,
+
     lastActivityDate: "2026-01-28",
   },
   {
@@ -289,7 +288,7 @@ export const competitors: Competitor[] = [
       "Launched $0.005/hr compute instances",
       "Partnership with Terraform for native integration",
     ],
-    signalCount30d: 2,
+
     lastActivityDate: "2026-01-25",
   },
   {
@@ -323,7 +322,7 @@ export const competitors: Competitor[] = [
       "Partnership with Cloudflare for extended PoPs",
       "Published benchmarks showing 5x latency improvement vs cloud",
     ],
-    signalCount30d: 16,
+
     lastActivityDate: "2026-01-27",
   },
   {
@@ -357,7 +356,7 @@ export const competitors: Competitor[] = [
       "Hit 50,000 free-tier developers",
       "Hired VP of Engineering from Vercel",
     ],
-    signalCount30d: 13,
+
     lastActivityDate: "2026-01-22",
   },
   {
@@ -391,7 +390,7 @@ export const competitors: Competitor[] = [
       "Signed LOI with 3 Fortune 500 companies",
       "Published paper showing 3x training efficiency vs A100 clusters",
     ],
-    signalCount30d: 3,
+
     lastActivityDate: "2026-01-31",
   },
 ];
@@ -1822,6 +1821,14 @@ export function getCompetitorSources(competitorId: string): Source[] {
 
 export function getCompetitorSignals(competitorId: string): Signal[] {
   return signals.filter((s) => s.competitorId === competitorId);
+}
+
+export function getSignalCount30d(competitorId: string): number {
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  return signals.filter(
+    (s) => s.competitorId === competitorId && new Date(s.detectedAt) >= thirtyDaysAgo
+  ).length;
 }
 
 export function getCompetitorInsights(competitorId: string): Insight[] {

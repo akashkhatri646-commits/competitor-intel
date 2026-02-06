@@ -271,7 +271,7 @@ function CompetitorDetailContent({
         </div>
         <div className="card p-4">
           <p className="text-xs text-subtle mb-1">Signals (30d)</p>
-          <p className="text-sm font-medium text-foreground">{competitor.signalCount30d}</p>
+          <p className="text-sm font-medium text-foreground">{trendTotal}</p>
         </div>
       </div>
 

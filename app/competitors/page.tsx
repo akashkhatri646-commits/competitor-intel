@@ -9,7 +9,7 @@ import {
   FilterDropdown,
   ThreatBadge,
 } from "@/components/ui";
-import { competitors, ThreatLevel, CompetitorType } from "@/lib/data";
+import { competitors, getSignalCount30d } from "@/lib/data";
 
 export default function CompetitorsPage() {
   const [search, setSearch] = useState("");
@@ -33,7 +33,7 @@ export default function CompetitorsPage() {
 
   const stats = useMemo(() => {
     const critical = competitors.filter((c) => c.threatLevel === "critical").length;
-    const totalSignals = competitors.reduce((sum, c) => sum + c.signalCount30d, 0);
+    const totalSignals = competitors.reduce((sum, c) => sum + getSignalCount30d(c.id), 0);
     return { critical, totalSignals };
   }, []);
 
