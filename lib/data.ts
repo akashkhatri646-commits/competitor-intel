@@ -880,7 +880,7 @@ export const signals: Signal[] = [
     category: "partnership",
     title: "QuantumBase signs Fortune 500 LOIs",
     summary: "Three Fortune 500 LOIs totaling $15M+ annually suggest enterprise interest in specialized AI infrastructure.",
-    detectedAt: "2026-01-31T09:00:00Z",
+    detectedAt: "2026-02-05T09:00:00Z",
     strength: "moderate",
   },
   {
@@ -910,7 +910,7 @@ export const signals: Signal[] = [
     category: "positioning",
     title: "CloudForge developer NPS leads industry at 72",
     summary: "Industry analyst highlights CloudForge's developer love, but questions ability to convert to enterprise revenue.",
-    detectedAt: "2026-01-28T09:00:00Z",
+    detectedAt: "2026-02-03T09:00:00Z",
     strength: "moderate",
   },
   // Additional signals for better coverage
@@ -951,7 +951,7 @@ export const signals: Signal[] = [
     category: "technical",
     title: "NimbusScale achieves 99.999% SLA",
     summary: "Five-nines SLA positions NimbusScale for mission-critical enterprise workloads. Creates pressure on AcmeCloud reliability.",
-    detectedAt: "2026-01-12T14:00:00Z",
+    detectedAt: "2026-02-01T14:00:00Z",
     strength: "strong",
   },
   {
@@ -961,7 +961,7 @@ export const signals: Signal[] = [
     category: "partnership",
     title: "CloudForge partners with Datadog",
     summary: "Native Datadog integration strengthens CloudForge's enterprise observability story and ecosystem play.",
-    detectedAt: "2026-01-20T15:00:00Z",
+    detectedAt: "2026-02-02T15:00:00Z",
     strength: "moderate",
   },
   {
@@ -971,7 +971,7 @@ export const signals: Signal[] = [
     category: "hiring",
     title: "EdgePulse hiring 30+ edge engineers",
     summary: "Aggressive hiring push suggests EdgePulse is preparing for rapid expansion. Focus on edge-native compute.",
-    detectedAt: "2026-01-23T09:00:00Z",
+    detectedAt: "2026-02-01T09:00:00Z",
     strength: "moderate",
   },
   {
@@ -981,7 +981,7 @@ export const signals: Signal[] = [
     category: "product",
     title: "InfraLayer launches managed Kubernetes",
     summary: "Entry into managed K8s market at aggressive pricing could capture cost-sensitive container workloads.",
-    detectedAt: "2026-01-25T11:00:00Z",
+    detectedAt: "2026-02-04T11:00:00Z",
     strength: "moderate",
   },
   {
@@ -991,7 +991,7 @@ export const signals: Signal[] = [
     category: "hiring",
     title: "QuantumBase hiring ML compiler engineers",
     summary: "Custom ML compiler development indicates deep technical moat being built around AI training efficiency.",
-    detectedAt: "2026-01-26T10:00:00Z",
+    detectedAt: "2026-02-03T10:00:00Z",
     strength: "moderate",
   },
   {
@@ -1012,7 +1012,7 @@ export const signals: Signal[] = [
     category: "partnership",
     title: "NimbusScale announces Microsoft Azure interoperability",
     summary: "Strategic partnership enables workload portability between NimbusScale and Azure, reducing switching costs.",
-    detectedAt: "2026-01-18T14:00:00Z",
+    detectedAt: "2026-02-04T14:00:00Z",
     strength: "moderate",
   },
   {
@@ -1022,7 +1022,7 @@ export const signals: Signal[] = [
     category: "product",
     title: "NimbusScale previews serverless containers",
     summary: "Knative-based serverless containers could compete with AcmeCloud's container offering for event-driven workloads.",
-    detectedAt: "2026-01-30T09:00:00Z",
+    detectedAt: "2026-02-06T09:00:00Z",
     strength: "moderate",
   },
   {
@@ -1032,7 +1032,7 @@ export const signals: Signal[] = [
     category: "hiring",
     title: "CloudForge opens Singapore engineering hub",
     summary: "50-person engineering hub signals APAC expansion and 24/7 development capability.",
-    detectedAt: "2026-01-21T08:00:00Z",
+    detectedAt: "2026-02-05T08:00:00Z",
     strength: "weak",
   },
   {
@@ -1042,7 +1042,7 @@ export const signals: Signal[] = [
     category: "partnership",
     title: "SkyVault partners with Epic Systems for healthcare",
     summary: "Epic integration deepens healthcare vertical lock-in. Major barrier for AcmeCloud in health IT.",
-    detectedAt: "2026-01-24T11:00:00Z",
+    detectedAt: "2026-02-02T11:00:00Z",
     strength: "strong",
   },
   {
@@ -1052,7 +1052,7 @@ export const signals: Signal[] = [
     category: "technical",
     title: "InfraLayer improves network throughput by 40%",
     summary: "Infrastructure upgrade narrows performance gap with premium providers while maintaining cost advantage.",
-    detectedAt: "2026-01-20T10:00:00Z",
+    detectedAt: "2026-02-01T10:00:00Z",
     strength: "weak",
   },
   {
@@ -1062,7 +1062,7 @@ export const signals: Signal[] = [
     category: "partnership",
     title: "EdgePulse integrates with Vercel for edge rendering",
     summary: "Vercel partnership brings EdgePulse to mainstream frontend developers. Expands edge computing awareness.",
-    detectedAt: "2026-01-19T15:00:00Z",
+    detectedAt: "2026-02-03T15:00:00Z",
     strength: "moderate",
   },
   {
@@ -1072,7 +1072,7 @@ export const signals: Signal[] = [
     category: "product",
     title: "DevStreamIO launches preview environments",
     summary: "Automatic preview deployments for PRs — feature parity with Vercel/Netlify in the serverless space.",
-    detectedAt: "2026-01-26T13:00:00Z",
+    detectedAt: "2026-02-05T13:00:00Z",
     strength: "weak",
   },
   {
@@ -1082,7 +1082,7 @@ export const signals: Signal[] = [
     category: "product",
     title: "QuantumBase opens beta access to 100 companies",
     summary: "Controlled beta expansion suggests product readiness. Early customers report 2.8x cost savings vs AWS.",
-    detectedAt: "2026-01-28T16:00:00Z",
+    detectedAt: "2026-02-06T08:00:00Z",
     strength: "strong",
   },
 ];
