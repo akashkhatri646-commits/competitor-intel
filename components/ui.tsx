@@ -1577,10 +1577,13 @@ export function ThreatMatrix({ competitors }: { competitors: Competitor[] }) {
         <span className="absolute bottom-2 right-2 text-[10px] text-medium">Watch</span>
 
         {/* Competitor dots */}
-        {competitors.map((c) => {
-          // X: Activity (signals in last 30d) - scale 0-20 signals to 5-95%
-          const activityCount = getSignalCount30d(c.id);
-          const x = Math.min(95, Math.max(5, (activityCount / 20) * 90 + 5));
+        {(() => {
+          const activityCounts = competitors.map((c) => getSignalCount30d(c.id));
+          const maxActivity = Math.max(...activityCounts, 1);
+          return competitors.map((c, i) => {
+          // X: Activity - scale dynamically relative to max so dots always disperse
+          const activityCount = activityCounts[i];
+          const x = Math.min(95, Math.max(5, (activityCount / maxActivity) * 90 + 5));
           // Y: Impact (threatScore) - inverted, scale 0-100 to position
           const y = 100 - c.threatScore;
           return (
@@ -1602,7 +1605,8 @@ export function ThreatMatrix({ competitors }: { competitors: Competitor[] }) {
               </div>
             </Link>
           );
-        })}
+        });
+        })()}
       </div>
     </div>
   );
