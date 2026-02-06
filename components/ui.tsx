@@ -1576,14 +1576,32 @@ export function ThreatMatrix({ competitors }: { competitors: Competitor[] }) {
         <span className="absolute bottom-2 left-2 text-[10px] text-subtle">Low</span>
         <span className="absolute bottom-2 right-2 text-[10px] text-medium">Watch</span>
 
-        {/* Competitor dots */}
+        {/* Competitor dots — split-rank X positioning guarantees all 4 quadrants have dots */}
         {(() => {
-          const activityCounts = competitors.map((c) => getSignalCount30d(c.id));
-          const maxActivity = Math.max(...activityCounts, 1);
-          return competitors.map((c, i) => {
-          // X: Activity - scale dynamically relative to max so dots always disperse
-          const activityCount = activityCounts[i];
-          const x = Math.min(95, Math.max(5, (activityCount / maxActivity) * 90 + 5));
+          // Strategy: split competitors into high/low impact groups by median threat score,
+          // then rank by activity WITHIN each group independently. This ensures each half
+          // of the Y-axis has dots spread across both left and right of the X midpoint,
+          // guaranteeing at least one competitor in every quadrant regardless of data correlation.
+          const sortedByThreat = [...competitors].sort((a, b) => a.threatScore - b.threatScore);
+          const median = sortedByThreat[Math.floor(sortedByThreat.length / 2)].threatScore;
+
+          const highImpact = competitors.filter((c) => c.threatScore >= median);
+          const lowImpact = competitors.filter((c) => c.threatScore < median);
+
+          // Rank by activity within a group, spread X positions from 5% to 95%
+          function buildXMap(group: typeof competitors) {
+            const sorted = [...group]
+              .map((c) => ({ c, activity: getSignalCount30d(c.id) }))
+              .sort((a, b) => a.activity - b.activity || a.c.threatScore - b.c.threatScore);
+            const maxRank = Math.max(sorted.length - 1, 1);
+            return new Map(sorted.map((item, i) => [item.c.id, (i / maxRank) * 90 + 5]));
+          }
+
+          const highXMap = buildXMap(highImpact);
+          const lowXMap = buildXMap(lowImpact);
+
+          return competitors.map((c) => {
+          const x = highXMap.get(c.id) ?? lowXMap.get(c.id) ?? 50;
           // Y: Impact (threatScore) - inverted, scale 0-100 to position
           const y = 100 - c.threatScore;
           return (
