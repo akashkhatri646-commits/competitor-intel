@@ -344,15 +344,17 @@ function CompetitorDetailContent({
         <div className="space-y-4">
           {/* Signal Filters */}
           <div className="flex flex-wrap gap-3 pb-3 border-b border-[rgba(0,0,0,0.06)]">
-            <FilterDropdown
-              label="Sort by"
-              value={signalSortBy}
-              onChange={(v) => setSignalSortBy(v as "relevant" | "recent")}
-              options={[
-                { value: "relevant", label: "Relevant" },
-                { value: "recent", label: "Recent" },
-              ]}
-            />
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-subtle">Sort by:</span>
+              <select
+                value={signalSortBy}
+                onChange={(e) => setSignalSortBy(e.target.value as "relevant" | "recent")}
+                className="px-3 py-1.5 rounded-lg bg-surface border border-[rgba(0,0,0,0.08)] text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/20"
+              >
+                <option value="relevant">Most Relevant</option>
+                <option value="recent">Most Recent</option>
+              </select>
+            </div>
             <FilterDropdown
               label="All Dates"
               value={signalDateFilter}
@@ -451,15 +453,17 @@ function CompetitorDetailContent({
         <div className="space-y-4">
           {/* Insight Filters */}
           <div className="flex flex-wrap gap-3 pb-3 border-b border-[rgba(0,0,0,0.06)]">
-            <FilterDropdown
-              label="Sort by"
-              value={insightSortBy}
-              onChange={(v) => setInsightSortBy(v as "relevant" | "recent")}
-              options={[
-                { value: "relevant", label: "Relevant" },
-                { value: "recent", label: "Recent" },
-              ]}
-            />
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-subtle">Sort by:</span>
+              <select
+                value={insightSortBy}
+                onChange={(e) => setInsightSortBy(e.target.value as "relevant" | "recent")}
+                className="px-3 py-1.5 rounded-lg bg-surface border border-[rgba(0,0,0,0.08)] text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/20"
+              >
+                <option value="relevant">Most Relevant</option>
+                <option value="recent">Most Recent</option>
+              </select>
+            </div>
             <FilterDropdown
               label="All Dates"
               value={insightDateFilter}
